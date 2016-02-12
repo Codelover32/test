@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+        </title>
+    </head>
+    <script src="angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    
+    
+    <body ng-app="gameApp">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Game from Angular JS</a>
+                    </div>
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Home</a></li>
+                        </ul>
+                </div>
+            </nav>
+        
+            <div class="container" ng-controller="mainCtrl">
+                     <h1>jrpg game</h1>
+                <div class=jumbotron>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <button class="btn btn-danger" ng-click="damage()">Attack this monster</button>
+                        </div>
+                         <div class="col-sm-3">
+                             <button class="btn btn-info" ng-click="find()">Find new monster</button>
+                        </div>
+                    </div>
+                    <div class=row>
+                        
+                        <div class="col-sm-6">
+                            <div>
+                            <h3>Level : 34 </h3>
+                            </div>
+                            <div>
+                                <img src="worrior.jpg" alt="Worrior" width="200" height="200">
+                            </div>
+                            <h3>Health{{Ht}}</h3>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                                    
+                                </div>
+                            </div>
+                            <h3>Attack : {{Atk}}</h3>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                </div>
+                            </div>
+                            <h3>Stamina : {{Mana}}:</h3>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                </div>
+                            </div>
+                            
+                            <h3>Item</h3>
+                            <div>
+                                <p>My Item</p>
+                            </div>
+                            
+                            <div>
+                               <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" 
+                                       ng-click="">Shop</button>
+                                <div class="btn btn-warning">{{Money|currency}}</div>
+
+                                    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content" ng-repeat="products in product">
+                                                <div class="container">
+                                                        <h3>{{products.name}}</h3>
+                                                        <img ng-src="{{products.image}}"/>
+                                                        <p>+Price{{products.price|currency}}</p>
+                                                        <p>+Attack{{products.damage}}</p>
+                                                        <button class="btn btn-success" ng-click="powerup()">Buy</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div><!--end--modal-->
+            
+                        </div><!--end player profile-->
+                   
+                        
+                         <div class="col-sm-6"> <!--Status of monster-->
+                             <div>
+                            <h3>{{monstername}}</h3>
+                            </div>
+                             <div>
+                              <img src="Golems.png" width="200" height="200">
+                             </div>
+                            <h3>Health : {{monsterhp}} Damage_recieve {{totalDamage}} {{Att}}</h3>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                                </div>
+                            </div>
+                            <h3>Attack : {{monsteratk}}</h3>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                </div>
+                            </div>
+                            <h3>Stamina :{{monstermana}}</h3>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                                </div>
+                            </div>
+                        </div><!--end monster profile-->
+                    </div> <!--end row-->
+                </div><!--end jutumbo-->
+            </div>
+     
+    </body>
+</html>
